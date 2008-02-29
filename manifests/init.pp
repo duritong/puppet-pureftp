@@ -1,16 +1,15 @@
-# modules/imapproxy/manifests/init.pp - manage imapproxy stuff
+# modules/pureftp/manifests/init.pp - manage pureftp stuff
 # Copyright (C) 2007 admin@immerda.ch
 #
 
-# modules_dir { "imapproxy": }
+# modules_dir { "pureftp": }
 
-class imapproxy {
-    $modulename = "imapproxy"
-    $pkgname = "up-imapproxy"
-    $gentoocat = "net-mail"
-    $cnfname = "imapproxy.conf"
+class pureftp {
+    $modulename = "pureftp" 
+    $pkgname = "pure-ftpd"
+    $gentoocat = "net-ftp"
+    $cnfname = "pureftp.conf"
     $cnfpath = "/etc"
-
 
     package { $pkgname:
         ensure => present,
@@ -32,6 +31,14 @@ class imapproxy {
             mode => 0444,
             require => Package[$pkgname],
     }
+
+    service { 
+        pureftp: 
+            ensure  => running,
+            enabled => true,
+            hasstatus => true,
+            hasrestart => true,
+    } 
 
 
 }
