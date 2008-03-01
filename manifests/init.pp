@@ -30,12 +30,13 @@ class pureftp {
             group => 0,
             mode => 0444,
             require => Package[$pkgname],
+            notify => Service[$pkgname],
     }
 
     service { 
         pureftp: 
             ensure  => running,
-            enabled => true,
+            enable => true,
             hasstatus => true,
             hasrestart => true,
     } 
