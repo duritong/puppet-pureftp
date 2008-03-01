@@ -34,7 +34,7 @@ class pureftp {
     }
 
     service { 
-        pureftp: 
+        $pkgname: 
             ensure  => running,
             enable => true,
             hasstatus => true,
