@@ -8,8 +8,8 @@ class pureftp {
     $modulename = "pureftp" 
     $pkgname = "pure-ftpd"
     $gentoocat = "net-ftp"
-    $cnfname = "pureftp.conf"
-    $cnfpath = "/etc"
+    $cnfname = "pure-ftpd"
+    $cnfpath = "/etc/conf.d"
 
     package { $pkgname:
         ensure => present,
@@ -31,6 +31,38 @@ class pureftp {
             mode => 0444,
             require => Package[$pkgname],
             notify => Service[$pkgname],
+    }
+
+    # db
+    $filename="pureftpd.pdb";
+    $filepath="/srv/ftp";
+    file{
+        "${filepath}/${$filename}":
+            source => [
+                "puppet://$server/dist/${modulename}/${fqdn}/${filename}",
+                "puppet://$server/${modulename}/${fqdn}/${filename}",
+                "puppet://$server/${modulename}/${filename}"
+            ],
+            owner => root,
+            group => 0,
+            mode => 0444,
+            require => Package[$pkgname],
+            notify => Service[$pkgname],
+    }
+
+    $filename="pureftpd.passwd";
+    $filepath="/srv/ftp";
+    file{
+        "${filepath}/${$filename}":
+            source => [
+                "puppet://$server/dist/${modulename}/${fqdn}/${filename}",
+                "puppet://$server/${modulename}/${fqdn}/${filename}",
+                "puppet://$server/${modulename}/${filename}"
+            ],
+            owner => root,
+            group => 0,
+            mode => 0444,
+            require => Package[$pkgname],
     }
 
     service { 
