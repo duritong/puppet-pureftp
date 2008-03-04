@@ -34,8 +34,8 @@ class pureftp {
     }
 
     # db
-    $filename="pureftpd.pdb";
-    $filepath="/srv/ftp";
+    $filename="pureftpd.pdb"
+    $filepath="/srv/ftp"
     file{
         "${filepath}/${$filename}":
             source => [
@@ -50,8 +50,8 @@ class pureftp {
             notify => Service[$pkgname],
     }
 
-    $filename="pureftpd.passwd";
-    $filepath="/srv/ftp";
+    $filename="pureftpd.passwd"
+    $filepath="/srv/ftp"
     file{
         "${filepath}/${$filename}":
             source => [
