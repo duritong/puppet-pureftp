@@ -34,14 +34,14 @@ class pureftp {
     }
 
     # db
-    $filename="pureftpd.pdb"
-    $filepath="/srv/ftp"
+    $file1name="pureftpd.pdb"
+    $file1path="/srv/ftp"
     file{
-        "${filepath}/${$filename}":
+        "${file1path}/${$file1name}":
             source => [
-                "puppet://$server/dist/${modulename}/${fqdn}/${filename}",
-                "puppet://$server/${modulename}/${fqdn}/${filename}",
-                "puppet://$server/${modulename}/${filename}"
+                "puppet://$server/dist/${modulename}/${fqdn}/${file1name}",
+                "puppet://$server/${modulename}/${fqdn}/${file1name}",
+                "puppet://$server/${modulename}/${file1name}"
             ],
             owner => root,
             group => 0,
@@ -50,14 +50,14 @@ class pureftp {
             notify => Service[$pkgname],
     }
 
-    $filename="pureftpd.passwd"
-    $filepath="/srv/ftp"
+    $file2name="pureftpd.passwd"
+    $file2path="/srv/ftp"
     file{
-        "${filepath}/${$filename}":
+        "${file2path}/${$file2name}":
             source => [
-                "puppet://$server/dist/${modulename}/${fqdn}/${filename}",
-                "puppet://$server/${modulename}/${fqdn}/${filename}",
-                "puppet://$server/${modulename}/${filename}"
+                "puppet://$server/dist/${modulename}/${fqdn}/${file2name}",
+                "puppet://$server/${modulename}/${fqdn}/${file2name}",
+                "puppet://$server/${modulename}/${file2name}"
             ],
             owner => root,
             group => 0,
