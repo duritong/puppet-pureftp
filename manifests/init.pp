@@ -19,7 +19,7 @@ class pureftp::base {
     file{"/srv/ftp":
         ensure => directory,
         owner => root,
-        uid => 0,
+        group => 0,
         mode => 755,
         require => File["/srv"],
     }
