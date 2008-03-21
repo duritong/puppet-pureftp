@@ -6,8 +6,8 @@
 
 class pureftp {
     case $operatingsystem {
-        gentoo: { include pureftpd::gentoo }
-        default: { include pureftpd::base }
+        gentoo: { include pureftp::gentoo }
+        default: { include pureftp::base }
     }
 }
 
@@ -53,7 +53,7 @@ class pureftp::base {
     } 
 }
 
-class pureftpd::gentoo inherits pureftpd::base {
+class pureftp::gentoo inherits pureftp::base {
     Package[pure-ftpd]{
         category => 'net-ftp'
     }
