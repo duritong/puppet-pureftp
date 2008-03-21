@@ -34,7 +34,7 @@ class pureftp::base {
             owner => root,
             group => 0,
             mode => 600,
-            require => [ Package[pure-ftpd], File[/srv/ftp] ],
+            require => [ Package[pure-ftpd], File["/srv/ftp"] ],
             notify => Exec[update_pure-ftpd_db],
     }
 
