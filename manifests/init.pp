@@ -21,7 +21,7 @@ class pureftp::base {
         owner => root,
         uid => 0,
         mode => 755,
-        require => File[/srv],
+        require => File["/srv"],
     }
 
     file{
