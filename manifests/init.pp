@@ -6,8 +6,8 @@
 
 class pureftp {
     case $operatingsystem {
-        gentoo: { include pure-ftpd::gentoo }
-        default: { include pure-ftpd::base }
+        gentoo: { include pureftpd::gentoo }
+        default: { include pureftpd::base }
     }
 }
 
