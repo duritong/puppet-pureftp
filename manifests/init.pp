@@ -58,5 +58,5 @@ class pureftp::gentoo inherits pureftp::base {
         category => 'net-ftp'
     }
 
-    gentoo::etcconfd { pure-ftpd: require => Package[pure-ftpd], notify => Service[pure-ftpd]}
+    gentoo::etcconfd {pure-ftpd: require => Package[pure-ftpd], notify => Service[pure-ftpd]}
 }
