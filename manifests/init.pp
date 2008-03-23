@@ -40,7 +40,6 @@ class pureftp::base {
 
     exec{update_pure-ftpd_db:
         command => "pure-pw mkdb /srv/ftp/pureftpd.pdb -f /srv/ftp/pureftpd.passwd",
-        path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin",
         refreshonly => true,
     }
 
