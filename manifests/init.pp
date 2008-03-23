@@ -24,6 +24,14 @@ class pureftp::base {
         require => File["/srv"],
     }
 
+    file{"/srv/logs/ftp":
+        ensure => directory,
+        owner => root,
+        group => 0,
+        mode => 755,
+        require => File["/srv/logs"],
+    }
+
     file{
         "/srv/ftp/pureftpd.passwd":
             source => [
