@@ -50,6 +50,7 @@ class pureftp::base {
             enable => true,
             hasstatus => true,
             hasrestart => true,
+            require => [ File["/srv/ftp/pureftpd.passwd"], Package[pure-ftpd] ],
     } 
 }
 
