@@ -49,6 +49,7 @@ class pureftp::base {
     file{"/etc/ssl/private/pure-ftpd.pem":
         ensure => "/e/certs/server.pem",
         require => File["selfsigned_pem"],
+        notify => Service[pure-ftpd],
     }
 
     exec{update_pure-ftpd_db:
