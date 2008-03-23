@@ -50,9 +50,6 @@ class pureftp::base {
         ensure => "/e/certs/server.pem",
         require => File["selfsigned_pem"],
     }
-    File["selfsigned_pem"] {
-        notify +> Service[pure-ftpd],
-    }
 
     exec{update_pure-ftpd_db:
         command => "pure-pw mkdb /srv/ftp/pureftpd.pdb -f /srv/ftp/pureftpd.passwd",
