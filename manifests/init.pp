@@ -37,7 +37,7 @@ class pureftp::base {
             source => [
                 "puppet://$server/files/pureftp/${fqdn}/pureftpd.passwd",
                 "puppet://$server/files/pureftp/pureftpd.passwd",
-                "puppet://$server/pureftp/pureftpd.passwd"
+                "puppet://$server/modules/pureftp/pureftpd.passwd"
             ],
             owner => root,
             group => 0,
