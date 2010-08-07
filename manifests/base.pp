@@ -22,9 +22,9 @@ class pureftp::base {
     file{
         "/srv/ftp/pureftpd.passwd":
             source => [
-                "puppet://$server/modules/site-pureftp/${fqdn}/pureftpd.passwd",
-                "puppet://$server/modules/site-pureftp/pureftpd.passwd",
-                "puppet://$server/modules/pureftp/pureftpd.passwd"
+                "puppet:///modules/site-pureftp/${fqdn}/pureftpd.passwd",
+                "puppet:///modules/site-pureftp/pureftpd.passwd",
+                "puppet:///modules/pureftp/pureftpd.passwd"
             ],
             owner => root,
             group => 0,
